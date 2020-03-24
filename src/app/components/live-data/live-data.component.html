@@ -1,3 +1,49 @@
-<p>
-  live-data works!
-</p>
+<div class="data-container">
+  <div style="padding: 30px">
+    <h3 style="text-align: center;">Lista contagi {{filterText}}</h3>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+        Filtro dati
+      </button>
+
+      <div class="dropdown-menu">
+        <a class="dropdown-item" style="cursor: pointer" (click)="selected(0)">Tutti</a>
+        <a class="dropdown-item" style="cursor: pointer" (click)="selected(1)">La tua regione</a>
+        <a class="dropdown-item" style="cursor: pointer" (click)="selected(2)">La tua provincia</a>
+      </div>
+    </div>
+    <div style="padding: 20px 0">
+      <span style="font-size: 0.7rem;">Ultimo aggiornamento: {{lastUpdateData}} – <a href="http://www.protezionecivile.gov.it/home" rel="noopener noreferrer" target="_blank">Fonte</a> </span>
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

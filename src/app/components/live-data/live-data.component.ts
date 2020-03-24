@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../services/data.service';
+import {Region} from '../../models/region';
 
 @Component({
   selector: 'app-live-data',
@@ -9,15 +10,24 @@ import {DataService} from '../../services/data.service';
 export class LiveDataComponent implements OnInit {
   filter = 0;
   filterText = 'in Italia';
-  lastUpdateData = '24/03/2020 – 17:00';
-
+  lastUpdateData = '';
+  regions: Region[] = []
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  private getData() {
     this.dataService.getLiveData().subscribe(
-    (data: any) => {
-      console.log('getLiveData', data);
+    (data: Region[]) => {
+      this.regions = data;
+      this.lastUpdateData = '';
+
+      if (this.regions.length > 0) {
+        this.lastUpdateData = this.regions[0].data;
+      }
     },
     error => {
       console.log('Error', error.error);

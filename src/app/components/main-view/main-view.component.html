@@ -1,3 +1,62 @@
-<p>
-  main-view works!
-</p>
+<div class="data-container">
+  <h3>Sesso</h3>
+  <li class="list-group-item gender d-flex align-items-center" (click)="selectedGender(0)">
+    <div class="image-parent">
+      <img src="../../../assets/male.svg" class="img-fluid" alt="quixote">
+    </div>
+    <span class="text-margin">Maschio</span>
+  </li>
+  <li class="list-group-item gender d-flex align-items-center" (click)="selectedGender(1)">
+    <div class="image-parent">
+      <img src="../../../assets/female.svg" class="img-fluid" alt="quixote">
+    </div>
+    <span class="text-margin">Femmina</span>
+  </li>
+
+  <h3 class="title-padding-top">Età</h3>
+  <span class="input-number">
+    <input type="number" id="inputNumber" name="inputNumber" [(ngModel)]="age" min="0" max="150" step="1">
+  </span>
+
+  <h3 class="title-padding-top">Come stai oggi?</h3>
+  <ul class="list-group">
+    <li class="list-group-item state d-flex align-items-center" (click)="selectedState(0)">
+      <div class="image-parent">
+        <img src="../../../assets/state_0.svg" class="img-fluid" alt="quixote">
+      </div>
+      <span class="text-margin">Sto bene - Ho fatto il test e sono Negativo</span>
+    </li>
+    <li class="list-group-item state d-flex align-items-center" (click)="selectedState(1)">
+      <div class="image-parent">
+        <img src="../../../assets/state_1.svg" class="img-fluid" alt="quixote">
+      </div>
+      <span class="text-margin">Sto bene - Non ho fatto il test</span>
+    </li>
+    <li class="list-group-item state d-flex align-items-center" (click)="selectedState(2)">
+      <div class="image-parent">
+        <img src="../../../assets/state_2.svg" class="img-fluid" alt="quixote">
+      </div>
+      <span class="text-margin">Non mi sento bene - Ho fatto il testo e sono Negativo</span>
+    </li>
+    <li class="list-group-item state d-flex align-items-center" (click)="selectedState(3)">
+      <div class="image-parent">
+        <img src="../../../assets/state_3.svg" class="img-fluid" alt="quixote">
+      </div>
+      <span class="text-margin">Non mi sento bene - Non ho fatto il test</span>
+    </li>
+    <li class="list-group-item state d-flex align-items-center" (click)="selectedState(4)">
+      <div class="image-parent">
+        <img src="../../../assets/state_4.svg" class="img-fluid" alt="quixote">
+      </div>
+      <span class="text-margin">Sto bene - Ho fatto il test ma sono Positivo</span>
+    </li>
+    <li class="list-group-item state d-flex align-items-center" (click)="selectedState(5)">
+      <div class="image-parent">
+        <img src="../../../assets/state_5.svg" class="img-fluid" alt="quixote">
+      </div>
+      <span class="text-margin">Non mi sento bene - Ho fatto il test e sono Positivo</span>
+    </li>
+  </ul>
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin: 40px 0">Invia i Dati</button>
+</div>

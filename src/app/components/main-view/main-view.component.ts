@@ -1,16 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-main-view',
   templateUrl: './main-view.component.html',
   styleUrls: ['./main-view.component.scss']
 })
-export class MainViewComponent implements OnInit {
+export class MainViewComponent implements OnInit, AfterViewInit {
   age = '0';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    this.collapseNavigationMenu();
+  }
+
+  private collapseNavigationMenu() {
+    let e = document.getElementById('navbarSupportedContent');
+    if (e != undefined) {
+      e.classList.remove('show');
+    }
   }
 
   selectedGender(value: number) {

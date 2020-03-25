@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {DataService} from '../../services/data.service';
 import {Region} from '../../models/region';
 import xml2js from 'xml2js';
@@ -9,7 +9,7 @@ import {TextPosition} from '../../models/TextPosition';
   templateUrl: './live-data.component.html',
   styleUrls: ['./live-data.component.scss']
 })
-export class LiveDataComponent implements OnInit {
+export class LiveDataComponent implements OnInit, AfterViewInit {
   filter = 0;
   filterText = 'in Italia';
   lastUpdateData = '';
@@ -26,11 +26,22 @@ export class LiveDataComponent implements OnInit {
     this.getData();
   }
 
+  ngAfterViewInit() {
+    this.collapseNavigationMenu();
+  }
+
+  private collapseNavigationMenu() {
+    let e = document.getElementById('navbarSupportedContent');
+    if (e != undefined) {
+      e.classList.remove('show');
+    }
+  }
+
   private getData() {
     this.getPosition().then(() => {
       this.getLiveData();
     });
-}
+  }
 
   selected(value: number, force: boolean = false) {
     if (this.filter != value || force) {

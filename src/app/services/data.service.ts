@@ -9,6 +9,7 @@ import {Region} from '../models/region';
 })
 export class DataService {
   liveDataUrl = 'https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni-latest.json'; // environment.apiUrl + '/italy/stats/province';
+  infoFromNMEAUrl = 'https://nominatim.openstreetmap.org';
 
   constructor(private httpClient : HttpClient) {
   }
@@ -27,5 +28,14 @@ export class DataService {
 
       return response;
     }));
+  }
+
+  getInfoFromNMEA(latitude: number, longitude: number) {
+    return this.httpClient.get(this.infoFromNMEAUrl + '/reverse?format=xml&lat=' + latitude + '&lon=' + longitude + '&zoom=18&addressdetails=1',
+        { responseType: 'text' })
+      .pipe(map(response => {
+
+        return response;
+      }));
   }
 }

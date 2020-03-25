@@ -9,7 +9,6 @@
       <div class="dropdown-menu">
         <a class="dropdown-item" style="cursor: pointer" (click)="selected(0)">Tutti</a>
         <a class="dropdown-item" style="cursor: pointer" (click)="selected(1)">La tua regione</a>
-        <a class="dropdown-item" style="cursor: pointer" (click)="selected(2)">La tua provincia</a>
       </div>
     </div>
     <div style="padding: 20px 0">
@@ -18,13 +17,19 @@
         <thead class="thead-dark">
         <tr>
           <th scope="col">Regione</th>
+          <th scope="col">Tot. Positivi</th>
+          <th scope="col">Tot. Guariti</th>
+          <th scope="col">Tot. Deceduti</th>
           <th scope="col">Totale casi</th>
         </tr>
         </thead>
         <tbody>
-        <ng-container *ngFor="let item of regions">
+        <ng-container *ngFor="let item of data">
           <tr>
             <td>{{item.denominazione_regione }}</td>
+            <td>{{item.totale_attualmente_positivi}}</td>
+            <td>{{item.dimessi_guariti}}</td>
+            <td>{{item.deceduti}}</td>
             <td>{{item.totale_casi}}</td>
           </tr>
         </ng-container>
